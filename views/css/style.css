@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto.woff2') format('woff2');
+}
+
+nav {
+    height: 1380px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+section {
+    position: relative;
+}
+
+footer {
+    background-color: #393939;
+    color: #FFFFFF;
+    clear: both;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+    height: 60px;
+}
+
+.main-cont {
+    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #006FA2;
+    margin-top: 108px;
+}
+
+.header-cont {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #71B2FC;
+    padding: 2px;
+    z-index: 1;
+}
+
+.input-cont {
+    max-width: 200px;
+    padding: 0px 4px;
+}
+
+.exp-btn {
+    padding: 0px 4px;
+}
+
+.card {
+    padding: 2px 3px;
+    height: 132px;
+    border-radius: 4px;
+}
+
+.card > p, div p {
+    margin: 0px;
+}
+
+.card-name {
+    width: 260px;
+}
+
+.rating-border {
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-right: 10px;
+    width: 50px;
+}
+
+.rating-text {
+    font-size: 20px;
+}
+
+.address-text {
+    width: 260px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.photopreview {
+    width: 128px;
+    height: 128px;
+    border-radius: 4px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.list-cont > li {
+    float: left;
+    border-radius: 4px;
+    background-color: #D5D5D5;
+}
+
+.list-cont > li:hover {
+    background: #92929B;
+}
+
+.list-cont > li.active > div,
+.list-cont > li.active > div:focus {
+    background-color: #08438F;
+}
+
+.list-cont > li.active > div:hover {
+    background-color: #0D50A5;
+}
+
+.list-cont > li.active > div > p.card-name {
+    color: #FFF;
+}
+
+.list-cont > li.active > div > div.address-text {
+    color: #EDEDED;
+}
+
+.list-cont > li.active > div > a {
+    color: #00F6FF;
+}
+
+.list-cont > li.active > div > a:hover,
+.list-cont > li.active > div > a:focus {
+    color: #00C0FF;
+}
+
+.nav-cont {
+    float: left;
+    min-width: 400px;
+}
+
+.section-main-cont {
+    overflow: hidden;
+}
+
+.photos-cont {
+    padding: 0px;
+}
+
+.photo-cont {
+    display: inline;
+}
+
+.image-view {
+    border-radius: 4px;
+    height: 200px;
+    width: 200px;
+    margin-bottom: 4px;
+}
+
+.foot-cont {
+    margin-top: 20px;
+}

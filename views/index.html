@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html ng-app="FoursquareApp">
+    <head>
+        <title>Foursquare</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="angularjs,SPA,Single Page Application" />
+        <meta name="description" content="Single Page Application built using AngularJS" />
+        <meta name="author" content="Victor Rios">
+
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/venuesSearchService.js"></script>
+        <script type="text/javascript" src="js/results.js"></script>
+        <script type="text/javascript" src="js/venuesPhotosService.js"></script>
+    </head>
+    <body class="main-cont" ng-controller="MainController as mainCtrl">
+
+        <header class="header-cont">
+
+            <img src="images/foursquare-logo.png" class="pull-left">
+            <form>
+                <div class="pull-left input-cont">
+                    <input type="text" class="form-control" ng-model="mainCtrl.place" placeholder="Explore Places In. e.g. NY" />
+                </div>
+                <div class="pull-left input-cont">
+                    <input type="text" class="form-control" ng-model="mainCtrl.category" placeholder="Category. e.g. Burger" />
+                </div>
+                <div class="pull-left exp-btn">
+                    <button ng-click="mainCtrl.doExplore()" class="btn btn-primary">Explore</button>
+                </div>
+            </form>
+        </header>
+        <div>
+            <div class="nav-cont">
+                <nav>
+                    <ul class="nav nav-stacked list-cont">
+                        <li ng-repeat="item in mainCtrl.items" ng-click="mainCtrl.setSelectedItem(item, $index)" ng-class="{active: $index===mainCtrl.selectedIndex}">
+                            <div class="card">
+
+                                <p class="card-name">{{item.venue.name}}</p>
+
+                                <div ng-style="{'background-color': mainCtrl.getRatingColor(item.venue.ratingColor)}" class="rating-border pull-left" ng-hide="{{mainCtrl.hideRating(item.venue.rating)}}">
+                                    <p class="text-center rating-text">{{item.venue.rating}}</p>
+                                </div>
+
+                                <div class="address-text">
+                                    <p>{{item.venue.location.address}}</p>
+                                    <p>{{mainCtrl.getCategory(item.venue)}}</p>
+                                </div>
+
+                                <img ng-src="{{mainCtrl.buildIconUrl(item.venue)}}" />
+                                <a class="vcenter" ng-show="{{mainCtrl.showUrl(item.venue.url)}}" href="{{mainCtrl.buildWebSiteUrl(item.venue.url)}}" target="_blank">Web site</a>
+
+                                <div class="pull-right" ng-show="{{mainCtrl.showPhotoPreview(item.venue)}}">
+                                    <img class="photopreview" ng-src="{{mainCtrl.buildPhotoUrl(item.venue)}}" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section class="section-main-cont" ng-show="showPhotos">
+
+                <venue-details></venue-details>
+
+            </section>
+
+        </div>
+
+        <footer>
+            <div class="foot-cont">Copyright © Trend Reactor</div>
+        </footer>
+
+    </body>
+</html>
